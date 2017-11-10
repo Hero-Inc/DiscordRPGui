@@ -28,14 +28,14 @@ namespace DiscordRPGui
 
             //Show main form and hide login form
             var frm = new frmMain();
-            frm.Location = this.Location;
+            frm.Location = Location;
             frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
+            frm.FormClosing += delegate { Show(); };
             frm.lblLoggedInAs.Text = "Currently logged in as " + txtUsername.Text;
             frm.Text = txtUsername.Text + "'s Adventure";
             frm.lblStatsTitle.Text = txtUsername.Text + "'s Stats";
             frm.Show();
-            this.Hide();
+            Hide();
         }
 
         private void btnClose_Click(object sender, EventArgs e) => Close();

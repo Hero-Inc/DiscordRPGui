@@ -17,10 +17,7 @@ namespace DiscordRPGui
             InitializeComponent();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void btnLogout_Click(object sender, EventArgs e) => Close();
 
         private void cmdMine_Click(object sender, EventArgs e)
         {
@@ -48,36 +45,17 @@ namespace DiscordRPGui
 
         private void tmrProgress_Tick(object sender, EventArgs e)
         {
-            if(pgsMine.Value < pgsMine.Maximum)
+            ProgressBar[] bars = { pgsMine, pgsForage, pgsChop, pgsFish };
+            Button[] buttons = { cmdMine, cmdForage, cmdChop, cmdFish };
+            for (int i = 0; i < bars.Length; i++)
             {
-                pgsMine.Value++;
-                if(pgsMine.Value == pgsMine.Maximum)
+                if (bars[i].Value < bars[i].Maximum)
                 {
-                    cmdMine.Enabled = true;
-                }
-            }
-            if (pgsForage.Value < pgsForage.Maximum)
-            {
-                pgsForage.Value++;
-                if (pgsForage.Value == pgsForage.Maximum)
-                {
-                    cmdForage.Enabled = true;
-                }
-            }
-            if (pgsChop.Value < pgsChop.Maximum)
-            {
-                pgsChop.Value++;
-                if (pgsChop.Value == pgsChop.Maximum)
-                {
-                    cmdChop.Enabled = true;
-                }
-            }
-            if (pgsFish.Value < pgsFish.Maximum)
-            {
-                pgsFish.Value++;
-                if (pgsFish.Value == pgsFish.Maximum)
-                {
-                    cmdFish.Enabled = true;
+                    bars[i].Value++;
+                    if (bars[i].Value == bars[i].Maximum)
+                    {
+                        buttons[i].Enabled = true;
+                    }
                 }
             }
         }

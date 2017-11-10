@@ -1,6 +1,6 @@
 ﻿namespace DiscordRPGui
 {
-    partial class frmMain
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pnlAdventure = new System.Windows.Forms.Panel();
-            this.lblAdventure = new System.Windows.Forms.Label();
-            this.cmdAdventure = new System.Windows.Forms.Button();
-            this.ProgressBar2 = new System.Windows.Forms.ProgressBar();
-            this.cmdHeal = new System.Windows.Forms.Button();
-            this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
-            this.pnlStats = new System.Windows.Forms.Panel();
-            this.btnStatsRefresh = new System.Windows.Forms.Button();
-            this.lblStatsTitle = new System.Windows.Forms.Label();
-            this.lblLoggedInAs = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlActions = new System.Windows.Forms.Panel();
             this.lblAll = new System.Windows.Forms.Label();
             this.chkAll = new System.Windows.Forms.CheckBox();
@@ -57,114 +48,40 @@
             this.cmdForage = new System.Windows.Forms.Button();
             this.chkMine = new System.Windows.Forms.CheckBox();
             this.cmdMine = new System.Windows.Forms.Button();
-            this.tmrProgress = new System.Windows.Forms.Timer(this.components);
-            this.pnlAdventure.SuspendLayout();
-            this.pnlStats.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.pnlActions.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlAdventure
+            // tabControl1
             // 
-            this.pnlAdventure.Controls.Add(this.lblAdventure);
-            this.pnlAdventure.Controls.Add(this.cmdAdventure);
-            this.pnlAdventure.Controls.Add(this.ProgressBar2);
-            this.pnlAdventure.Controls.Add(this.cmdHeal);
-            this.pnlAdventure.Controls.Add(this.ProgressBar1);
-            this.pnlAdventure.Location = new System.Drawing.Point(204, 12);
-            this.pnlAdventure.Name = "pnlAdventure";
-            this.pnlAdventure.Size = new System.Drawing.Size(163, 166);
-            this.pnlAdventure.TabIndex = 17;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(235, 314);
+            this.tabControl1.TabIndex = 0;
             // 
-            // lblAdventure
+            // tabPage1
             // 
-            this.lblAdventure.AutoSize = true;
-            this.lblAdventure.Location = new System.Drawing.Point(3, 3);
-            this.lblAdventure.Name = "lblAdventure";
-            this.lblAdventure.Size = new System.Drawing.Size(56, 13);
-            this.lblAdventure.TabIndex = 17;
-            this.lblAdventure.Text = "Adventure";
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(227, 288);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // cmdAdventure
+            // tabPage2
             // 
-            this.cmdAdventure.Location = new System.Drawing.Point(3, 19);
-            this.cmdAdventure.Name = "cmdAdventure";
-            this.cmdAdventure.Size = new System.Drawing.Size(75, 23);
-            this.cmdAdventure.TabIndex = 6;
-            this.cmdAdventure.Text = "Adventure";
-            this.cmdAdventure.UseVisualStyleBackColor = true;
-            // 
-            // ProgressBar2
-            // 
-            this.ProgressBar2.Location = new System.Drawing.Point(84, 48);
-            this.ProgressBar2.Maximum = 60;
-            this.ProgressBar2.Name = "ProgressBar2";
-            this.ProgressBar2.Size = new System.Drawing.Size(75, 23);
-            this.ProgressBar2.TabIndex = 11;
-            this.ProgressBar2.Value = 60;
-            // 
-            // cmdHeal
-            // 
-            this.cmdHeal.Location = new System.Drawing.Point(84, 19);
-            this.cmdHeal.Name = "cmdHeal";
-            this.cmdHeal.Size = new System.Drawing.Size(75, 23);
-            this.cmdHeal.TabIndex = 7;
-            this.cmdHeal.Text = "Heal";
-            this.cmdHeal.UseVisualStyleBackColor = true;
-            // 
-            // ProgressBar1
-            // 
-            this.ProgressBar1.Location = new System.Drawing.Point(3, 48);
-            this.ProgressBar1.Maximum = 60;
-            this.ProgressBar1.Name = "ProgressBar1";
-            this.ProgressBar1.Size = new System.Drawing.Size(75, 23);
-            this.ProgressBar1.TabIndex = 10;
-            this.ProgressBar1.Value = 60;
-            // 
-            // pnlStats
-            // 
-            this.pnlStats.Controls.Add(this.btnStatsRefresh);
-            this.pnlStats.Controls.Add(this.lblStatsTitle);
-            this.pnlStats.Location = new System.Drawing.Point(373, 12);
-            this.pnlStats.Name = "pnlStats";
-            this.pnlStats.Size = new System.Drawing.Size(123, 166);
-            this.pnlStats.TabIndex = 16;
-            // 
-            // btnStatsRefresh
-            // 
-            this.btnStatsRefresh.Location = new System.Drawing.Point(97, 3);
-            this.btnStatsRefresh.Name = "btnStatsRefresh";
-            this.btnStatsRefresh.Size = new System.Drawing.Size(23, 23);
-            this.btnStatsRefresh.TabIndex = 9;
-            this.btnStatsRefresh.Text = "↺";
-            this.btnStatsRefresh.UseVisualStyleBackColor = true;
-            // 
-            // lblStatsTitle
-            // 
-            this.lblStatsTitle.AutoSize = true;
-            this.lblStatsTitle.Location = new System.Drawing.Point(3, 3);
-            this.lblStatsTitle.Name = "lblStatsTitle";
-            this.lblStatsTitle.Size = new System.Drawing.Size(76, 13);
-            this.lblStatsTitle.TabIndex = 8;
-            this.lblStatsTitle.Text = "MrHero\'s Stats";
-            // 
-            // lblLoggedInAs
-            // 
-            this.lblLoggedInAs.AutoSize = true;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(93, 189);
-            this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(181, 13);
-            this.lblLoggedInAs.TabIndex = 15;
-            this.lblLoggedInAs.Text = "Currently Logged in as MrHero#1234";
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(12, 184);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 23);
-            this.btnLogout.TabIndex = 14;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(227, 235);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pnlActions
             // 
@@ -184,10 +101,11 @@
             this.pnlActions.Controls.Add(this.cmdForage);
             this.pnlActions.Controls.Add(this.chkMine);
             this.pnlActions.Controls.Add(this.cmdMine);
-            this.pnlActions.Location = new System.Drawing.Point(12, 12);
+            this.pnlActions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlActions.Location = new System.Drawing.Point(231, 0);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(186, 166);
-            this.pnlActions.TabIndex = 13;
+            this.pnlActions.Size = new System.Drawing.Size(186, 314);
+            this.pnlActions.TabIndex = 14;
             // 
             // lblAll
             // 
@@ -206,7 +124,6 @@
             this.chkAll.Size = new System.Drawing.Size(15, 14);
             this.chkAll.TabIndex = 17;
             this.chkAll.UseVisualStyleBackColor = true;
-            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // lblActions
             // 
@@ -261,7 +178,6 @@
             this.cmdAllActions.TabIndex = 8;
             this.cmdAllActions.Text = "Do Selected";
             this.cmdAllActions.UseVisualStyleBackColor = true;
-            this.cmdAllActions.Click += new System.EventHandler(this.cmdAllActions_Click);
             // 
             // chkFish
             // 
@@ -280,7 +196,6 @@
             this.cmdFish.TabIndex = 6;
             this.cmdFish.Text = "Fish";
             this.cmdFish.UseVisualStyleBackColor = true;
-            this.cmdFish.Click += new System.EventHandler(this.cmdFish_Click);
             // 
             // chkChop
             // 
@@ -299,7 +214,6 @@
             this.cmdChop.TabIndex = 4;
             this.cmdChop.Text = "Chop";
             this.cmdChop.UseVisualStyleBackColor = true;
-            this.cmdChop.Click += new System.EventHandler(this.cmdChop_Click);
             // 
             // chkForage
             // 
@@ -318,7 +232,6 @@
             this.cmdForage.TabIndex = 2;
             this.cmdForage.Text = "Forage";
             this.cmdForage.UseVisualStyleBackColor = true;
-            this.cmdForage.Click += new System.EventHandler(this.cmdForage_Click);
             // 
             // chkMine
             // 
@@ -337,50 +250,31 @@
             this.cmdMine.TabIndex = 0;
             this.cmdMine.Text = "Mine";
             this.cmdMine.UseVisualStyleBackColor = true;
-            this.cmdMine.Click += new System.EventHandler(this.cmdMine_Click);
             // 
-            // tmrProgress
-            // 
-            this.tmrProgress.Enabled = true;
-            this.tmrProgress.Tick += new System.EventHandler(this.tmrProgress_Tick);
-            // 
-            // frmMain
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 218);
-            this.Controls.Add(this.pnlAdventure);
-            this.Controls.Add(this.pnlStats);
-            this.Controls.Add(this.lblLoggedInAs);
-            this.Controls.Add(this.btnLogout);
+            this.ClientSize = new System.Drawing.Size(417, 314);
             this.Controls.Add(this.pnlActions);
-            this.Name = "frmMain";
-            this.Text = "MrHero\'s Adventure";
-            this.pnlAdventure.ResumeLayout(false);
-            this.pnlAdventure.PerformLayout();
-            this.pnlStats.ResumeLayout(false);
-            this.pnlStats.PerformLayout();
+            this.Controls.Add(this.tabControl1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.tabControl1.ResumeLayout(false);
             this.pnlActions.ResumeLayout(false);
             this.pnlActions.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        internal System.Windows.Forms.Panel pnlAdventure;
-        internal System.Windows.Forms.Label lblAdventure;
-        internal System.Windows.Forms.Button cmdAdventure;
-        internal System.Windows.Forms.ProgressBar ProgressBar2;
-        internal System.Windows.Forms.Button cmdHeal;
-        internal System.Windows.Forms.ProgressBar ProgressBar1;
-        internal System.Windows.Forms.Panel pnlStats;
-        internal System.Windows.Forms.Button btnStatsRefresh;
-        internal System.Windows.Forms.Label lblStatsTitle;
-        internal System.Windows.Forms.Label lblLoggedInAs;
-        internal System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         internal System.Windows.Forms.Panel pnlActions;
+        private System.Windows.Forms.Label lblAll;
+        private System.Windows.Forms.CheckBox chkAll;
         internal System.Windows.Forms.Label lblActions;
         internal System.Windows.Forms.ProgressBar pgsFish;
         internal System.Windows.Forms.ProgressBar pgsChop;
@@ -395,9 +289,5 @@
         internal System.Windows.Forms.Button cmdForage;
         internal System.Windows.Forms.CheckBox chkMine;
         internal System.Windows.Forms.Button cmdMine;
-        private System.Windows.Forms.Timer tmrProgress;
-        private System.Windows.Forms.Label lblAll;
-        private System.Windows.Forms.CheckBox chkAll;
     }
 }
-
