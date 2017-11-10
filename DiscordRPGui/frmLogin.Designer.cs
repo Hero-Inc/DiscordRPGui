@@ -35,12 +35,13 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.picDRPGLogo = new System.Windows.Forms.PictureBox();
+            this.chkRemember = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picDRPGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(147, 326);
+            this.btnClose.Location = new System.Drawing.Point(147, 334);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 13;
@@ -50,7 +51,7 @@
             // 
             // cmdLogin
             // 
-            this.cmdLogin.Location = new System.Drawing.Point(12, 326);
+            this.cmdLogin.Location = new System.Drawing.Point(12, 334);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(75, 23);
             this.cmdLogin.TabIndex = 12;
@@ -61,7 +62,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(13, 281);
+            this.lblPassword.Location = new System.Drawing.Point(13, 268);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 11;
@@ -78,7 +79,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 300);
+            this.txtPassword.Location = new System.Drawing.Point(12, 287);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(210, 20);
@@ -99,11 +100,22 @@
             this.picDRPGLogo.TabIndex = 7;
             this.picDRPGLogo.TabStop = false;
             // 
+            // chkRemember
+            // 
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Location = new System.Drawing.Point(12, 313);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(126, 17);
+            this.chkRemember.TabIndex = 14;
+            this.chkRemember.Text = "Remember Password";
+            this.chkRemember.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 361);
+            this.ClientSize = new System.Drawing.Size(234, 371);
+            this.Controls.Add(this.chkRemember);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cmdLogin);
             this.Controls.Add(this.lblPassword);
@@ -113,6 +125,8 @@
             this.Controls.Add(this.picDRPGLogo);
             this.Name = "frmLogin";
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picDRPGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,5 +142,6 @@
         internal System.Windows.Forms.TextBox txtPassword;
         internal System.Windows.Forms.TextBox txtUsername;
         internal System.Windows.Forms.PictureBox picDRPGLogo;
+        private System.Windows.Forms.CheckBox chkRemember;
     }
 }

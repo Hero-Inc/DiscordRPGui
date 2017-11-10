@@ -105,5 +105,14 @@ namespace DiscordRPGui
                 pgsFish.Value = 0;
             }
         }
+
+        private void chkAll_CheckedChanged(object sender, EventArgs e)
+        {
+            Boolean all = chkAll.Checked;
+            chkMine.Checked = all;
+            chkForage.Checked = all;
+            chkChop.Checked = all;
+            chkFish.Checked = all;
+        }
     }
 }

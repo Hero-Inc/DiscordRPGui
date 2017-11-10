@@ -56,6 +56,8 @@
             this.chkMine = new System.Windows.Forms.CheckBox();
             this.cmdMine = new System.Windows.Forms.Button();
             this.tmrProgress = new System.Windows.Forms.Timer(this.components);
+            this.chkAll = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlAdventure.SuspendLayout();
             this.pnlStats.SuspendLayout();
             this.pnlActions.SuspendLayout();
@@ -166,6 +168,8 @@
             // 
             // pnlActions
             // 
+            this.pnlActions.Controls.Add(this.label1);
+            this.pnlActions.Controls.Add(this.chkAll);
             this.pnlActions.Controls.Add(this.lblActions);
             this.pnlActions.Controls.Add(this.pgsFish);
             this.pnlActions.Controls.Add(this.pgsChop);
@@ -232,7 +236,7 @@
             // 
             // cmdAllActions
             // 
-            this.cmdAllActions.Location = new System.Drawing.Point(26, 136);
+            this.cmdAllActions.Location = new System.Drawing.Point(107, 135);
             this.cmdAllActions.Name = "cmdAllActions";
             this.cmdAllActions.Size = new System.Drawing.Size(75, 23);
             this.cmdAllActions.TabIndex = 8;
@@ -321,6 +325,25 @@
             this.tmrProgress.Enabled = true;
             this.tmrProgress.Tick += new System.EventHandler(this.tmrProgress_Tick);
             // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(5, 139);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(15, 14);
+            this.chkAll.TabIndex = 17;
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Select All";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,6 +396,8 @@
         internal System.Windows.Forms.CheckBox chkMine;
         internal System.Windows.Forms.Button cmdMine;
         private System.Windows.Forms.Timer tmrProgress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkAll;
     }
 }
 
