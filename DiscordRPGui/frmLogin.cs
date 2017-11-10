@@ -36,7 +36,6 @@ namespace DiscordRPGui
             frm.lblStatsTitle.Text = txtUsername.Text + "'s Stats";
             frm.Show();
             this.Hide();
-            Program.testing();
         }
 
         private void btnClose_Click(object sender, EventArgs e) => Close();
