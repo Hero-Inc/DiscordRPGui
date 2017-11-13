@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DSharpPlus;
+using DSharpPlus.EventArgs;
 
 namespace DiscordRPGui
 {
@@ -19,28 +21,34 @@ namespace DiscordRPGui
         
         public Bot bot { get; set; }
 
+        public DSharpPlus.Entities.DiscordChannel chn;
+
         private void btnLogout_Click(object sender, EventArgs e) => Close();
 
         private void cmdMine_Click(object sender, EventArgs e)
         {
+            sendMessage("#!mine");
             cmdMine.Enabled = false;
             pgsMine.Value = 0;
         }
 
         private void cmdForage_Click(object sender, EventArgs e)
         {
+            sendMessage("#!Forage");
             cmdForage.Enabled = false;
             pgsForage.Value = 0;
         }
 
         private void cmdChop_Click(object sender, EventArgs e)
         {
+            sendMessage("#!Chop");
             cmdChop.Enabled = false;
             pgsChop.Value = 0;
         }
 
         private void cmdFish_Click(object sender, EventArgs e)
         {
+            sendMessage("#!Fish");
             cmdFish.Enabled = false;
             pgsFish.Value = 0;
         }
@@ -66,23 +74,19 @@ namespace DiscordRPGui
         {
             if(chkMine.Checked && cmdMine.Enabled)
             {
-                cmdMine.Enabled = false;
-                pgsMine.Value = 0;
+                cmdMine.PerformClick();
             }
             if (chkForage.Checked && cmdForage.Enabled)
             {
-                cmdForage.Enabled = false;
-                pgsForage.Value = 0;
+                cmdForage.PerformClick();
             }
             if (chkChop.Checked && cmdChop.Enabled)
             {
-                cmdChop.Enabled = false;
-                pgsChop.Value = 0;
+                cmdChop.PerformClick();
             }
             if (chkFish.Checked && cmdFish.Enabled)
             {
-                cmdFish.Enabled = false;
-                pgsFish.Value = 0;
+                cmdFish.PerformClick();
             }
         }
 
@@ -95,6 +99,11 @@ namespace DiscordRPGui
             chkFish.Checked = all;
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -103,5 +112,13 @@ namespace DiscordRPGui
                 Hide();
             }
         }
+
+        public void sendMessage(string message)
+        {
+            _ = Task.Run(() => BotSendMessageCallback(message));
+        }
+
+        private Task BotSendMessageCallback(string text)
+            => chn.SendMessageAsync(text);
     }
 }

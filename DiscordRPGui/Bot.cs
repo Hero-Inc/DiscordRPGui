@@ -17,7 +17,7 @@ namespace DiscordRPGui
             var cfg = new DiscordConfiguration
             {
                 Token = token,                   // use the supplied token
-                TokenType = TokenType.Bot,       // log in as a bot
+                TokenType = TokenType.User,       // log in as a bot
 
                 AutoReconnect = true,            // reconnect automatically
                 LogLevel = LogLevel.Debug,       // log everything

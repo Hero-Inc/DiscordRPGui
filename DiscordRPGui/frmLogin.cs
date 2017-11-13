@@ -39,7 +39,6 @@ namespace DiscordRPGui
                 txtToken.Enabled = false;
                 chkRemember.Enabled = false;
                 bot = new Bot(txtToken.Text);
-                MessageBox.Show(txtToken.Text);
 
                 bot.Client.Ready += bot_ready;
                 bot.Client.ClientErrored += this.bot_ClientErrored;
@@ -93,10 +92,10 @@ namespace DiscordRPGui
                 await Task.Delay(-1, tokenSource.Token).ConfigureAwait(false);
             }
             catch { /* ignore the exception; it's expected */ }
-
+            
             // this will stop the bot
             await bot.StopAsync().ConfigureAwait(false);
-
+            
             //Reenable controls
             Invoke(new Action(() =>
             {
@@ -121,7 +120,16 @@ namespace DiscordRPGui
             Invoke(new Action(frm.Show));
             Invoke(new Action(Hide));
 
+            getUser();
+
             return Task.CompletedTask;
+        }
+
+        private async void getUser()
+        {
+            //Get DM channel
+            DSharpPlus.Entities.DiscordUser user = await bot.Client.GetUserAsync(170915625722576896);
+            frm.chn = await bot.Client.CreateDmAsync(user);
         }
 
         private Task bot_ClientErrored(ClientErrorEventArgs e)
