@@ -16,6 +16,8 @@ namespace DiscordRPGui
         {
             InitializeComponent();
         }
+        
+        public Bot bot { get; set; }
 
         private void btnLogout_Click(object sender, EventArgs e) => Close();
 
@@ -91,6 +93,15 @@ namespace DiscordRPGui
             chkForage.Checked = all;
             chkChop.Checked = all;
             chkFish.Checked = all;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
         }
     }
 }

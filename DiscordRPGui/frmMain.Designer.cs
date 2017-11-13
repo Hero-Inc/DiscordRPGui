@@ -356,6 +356,7 @@
             this.Controls.Add(this.pnlActions);
             this.Name = "frmMain";
             this.Text = "MrHero\'s Adventure";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.pnlAdventure.ResumeLayout(false);
             this.pnlAdventure.PerformLayout();
             this.pnlStats.ResumeLayout(false);
