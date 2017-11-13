@@ -59,5 +59,15 @@ namespace DiscordRPGui.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ab45017ee9809b61afc0322d66bda0c7 {
+            get {
+                object obj = ResourceManager.GetObject("ab45017ee9809b61afc0322d66bda0c7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
