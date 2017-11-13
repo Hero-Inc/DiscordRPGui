@@ -16,7 +16,7 @@ namespace DiscordRPGui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmCombined());
         }
     }
 }
