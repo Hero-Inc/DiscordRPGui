@@ -42,6 +42,7 @@ namespace DiscordRPGui
 
                 bot.Client.Ready += bot_ready;
                 bot.Client.ClientErrored += this.bot_ClientErrored;
+                bot.Client.MessageCreated += bot_MessageReceived;
 
                 tokenSource = new CancellationTokenSource();
 
@@ -120,16 +121,34 @@ namespace DiscordRPGui
             Invoke(new Action(frm.Show));
             Invoke(new Action(Hide));
 
-            getUser();
+            getChannel();
 
             return Task.CompletedTask;
         }
 
-        private async void getUser()
+        private Task bot_MessageReceived(MessageCreateEventArgs e)
         {
-            //Get DM channel
-            DSharpPlus.Entities.DiscordUser user = await bot.Client.GetUserAsync(170915625722576896);
-            frm.chn = await bot.Client.CreateDmAsync(user);
+            if (e.Author.Id == 170915625722576896 && e.Message.Content.Contains(bot.Client.CurrentUser.Username))
+            {
+                if (e.Message.Content.Contains("Stats"))
+                {
+                    Invoke(new Action(() =>
+                    {
+                        frm.lblStatsTitle.Text = e.Message.Content;
+                    }));
+                    
+                }
+                MessageBox.Show(e.Message.Content);
+            }
+
+            return Task.CompletedTask;
+        }
+
+        private async void getChannel()
+        {
+            //Get channel
+            //DSharpPlus.Entities.DiscordUser user = await bot.Client.GetUserAsync(170915625722576896);
+            frm.chn = await bot.Client.GetChannelAsync(259236936437334016);
         }
 
         private Task bot_ClientErrored(ClientErrorEventArgs e)

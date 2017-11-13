@@ -27,36 +27,54 @@ namespace DiscordRPGui
 
         private void cmdMine_Click(object sender, EventArgs e)
         {
-            sendMessage("#!mine");
+            sendMessage(">mine");
             cmdMine.Enabled = false;
             pgsMine.Value = 0;
         }
 
         private void cmdForage_Click(object sender, EventArgs e)
         {
-            sendMessage("#!Forage");
+            sendMessage(">Forage");
             cmdForage.Enabled = false;
             pgsForage.Value = 0;
         }
 
         private void cmdChop_Click(object sender, EventArgs e)
         {
-            sendMessage("#!Chop");
+            sendMessage(">Chop");
             cmdChop.Enabled = false;
             pgsChop.Value = 0;
         }
 
         private void cmdFish_Click(object sender, EventArgs e)
         {
-            sendMessage("#!Fish");
+            sendMessage(">Fish");
             cmdFish.Enabled = false;
             pgsFish.Value = 0;
         }
 
+        private void cmdAdventure_Click(object sender, EventArgs e)
+        {
+            sendMessage(">adv");
+            cmdAdventure.Enabled = false;
+            pgsAdv.Value = 0;
+        }
+
+        private void cmdHeal_Click(object sender, EventArgs e)
+        {
+            sendMessage(">heal");
+            pgsHeal.Value = 0;
+        }
+
+        private void btnStatsRefresh_Click(object sender, EventArgs e)
+        {
+            sendMessage(">stats");
+        }
+
         private void tmrProgress_Tick(object sender, EventArgs e)
         {
-            ProgressBar[] bars = { pgsMine, pgsForage, pgsChop, pgsFish };
-            Button[] buttons = { cmdMine, cmdForage, cmdChop, cmdFish };
+            ProgressBar[] bars = { pgsMine, pgsForage, pgsChop, pgsFish, pgsAdv, pgsHeal };
+            Button[] buttons = { cmdMine, cmdForage, cmdChop, cmdFish, cmdAdventure, cmdHeal };
             for (int i = 0; i < bars.Length; i++)
             {
                 if (bars[i].Value < bars[i].Maximum)
@@ -120,5 +138,7 @@ namespace DiscordRPGui
 
         private Task BotSendMessageCallback(string text)
             => chn.SendMessageAsync(text);
+
+        
     }
 }

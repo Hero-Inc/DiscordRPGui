@@ -32,9 +32,9 @@
             this.pnlAdventure = new System.Windows.Forms.Panel();
             this.lblAdventure = new System.Windows.Forms.Label();
             this.cmdAdventure = new System.Windows.Forms.Button();
-            this.ProgressBar2 = new System.Windows.Forms.ProgressBar();
+            this.pgsHeal = new System.Windows.Forms.ProgressBar();
             this.cmdHeal = new System.Windows.Forms.Button();
-            this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pgsAdv = new System.Windows.Forms.ProgressBar();
             this.pnlStats = new System.Windows.Forms.Panel();
             this.btnStatsRefresh = new System.Windows.Forms.Button();
             this.lblStatsTitle = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.chkMine = new System.Windows.Forms.CheckBox();
             this.cmdMine = new System.Windows.Forms.Button();
             this.tmrProgress = new System.Windows.Forms.Timer(this.components);
+            this.lblStats = new System.Windows.Forms.Label();
             this.pnlAdventure.SuspendLayout();
             this.pnlStats.SuspendLayout();
             this.pnlActions.SuspendLayout();
@@ -67,9 +68,9 @@
             // 
             this.pnlAdventure.Controls.Add(this.lblAdventure);
             this.pnlAdventure.Controls.Add(this.cmdAdventure);
-            this.pnlAdventure.Controls.Add(this.ProgressBar2);
+            this.pnlAdventure.Controls.Add(this.pgsHeal);
             this.pnlAdventure.Controls.Add(this.cmdHeal);
-            this.pnlAdventure.Controls.Add(this.ProgressBar1);
+            this.pnlAdventure.Controls.Add(this.pgsAdv);
             this.pnlAdventure.Location = new System.Drawing.Point(204, 12);
             this.pnlAdventure.Name = "pnlAdventure";
             this.pnlAdventure.Size = new System.Drawing.Size(163, 166);
@@ -92,15 +93,15 @@
             this.cmdAdventure.TabIndex = 6;
             this.cmdAdventure.Text = "Adventure";
             this.cmdAdventure.UseVisualStyleBackColor = true;
+            this.cmdAdventure.Click += new System.EventHandler(this.cmdAdventure_Click);
             // 
-            // ProgressBar2
+            // pgsHeal
             // 
-            this.ProgressBar2.Location = new System.Drawing.Point(84, 48);
-            this.ProgressBar2.Maximum = 60;
-            this.ProgressBar2.Name = "ProgressBar2";
-            this.ProgressBar2.Size = new System.Drawing.Size(75, 23);
-            this.ProgressBar2.TabIndex = 11;
-            this.ProgressBar2.Value = 60;
+            this.pgsHeal.Location = new System.Drawing.Point(84, 48);
+            this.pgsHeal.Name = "pgsHeal";
+            this.pgsHeal.Size = new System.Drawing.Size(75, 23);
+            this.pgsHeal.TabIndex = 11;
+            this.pgsHeal.Value = 100;
             // 
             // cmdHeal
             // 
@@ -110,18 +111,20 @@
             this.cmdHeal.TabIndex = 7;
             this.cmdHeal.Text = "Heal";
             this.cmdHeal.UseVisualStyleBackColor = true;
+            this.cmdHeal.Click += new System.EventHandler(this.cmdHeal_Click);
             // 
-            // ProgressBar1
+            // pgsAdv
             // 
-            this.ProgressBar1.Location = new System.Drawing.Point(3, 48);
-            this.ProgressBar1.Maximum = 60;
-            this.ProgressBar1.Name = "ProgressBar1";
-            this.ProgressBar1.Size = new System.Drawing.Size(75, 23);
-            this.ProgressBar1.TabIndex = 10;
-            this.ProgressBar1.Value = 60;
+            this.pgsAdv.Location = new System.Drawing.Point(3, 48);
+            this.pgsAdv.Maximum = 120;
+            this.pgsAdv.Name = "pgsAdv";
+            this.pgsAdv.Size = new System.Drawing.Size(75, 23);
+            this.pgsAdv.TabIndex = 10;
+            this.pgsAdv.Value = 120;
             // 
             // pnlStats
             // 
+            this.pnlStats.Controls.Add(this.lblStats);
             this.pnlStats.Controls.Add(this.btnStatsRefresh);
             this.pnlStats.Controls.Add(this.lblStatsTitle);
             this.pnlStats.Location = new System.Drawing.Point(373, 12);
@@ -137,6 +140,7 @@
             this.btnStatsRefresh.TabIndex = 9;
             this.btnStatsRefresh.Text = "↺";
             this.btnStatsRefresh.UseVisualStyleBackColor = true;
+            this.btnStatsRefresh.Click += new System.EventHandler(this.btnStatsRefresh_Click);
             // 
             // lblStatsTitle
             // 
@@ -220,38 +224,38 @@
             // pgsFish
             // 
             this.pgsFish.Location = new System.Drawing.Point(107, 106);
-            this.pgsFish.Maximum = 600;
+            this.pgsFish.Maximum = 3000;
             this.pgsFish.Name = "pgsFish";
             this.pgsFish.Size = new System.Drawing.Size(75, 23);
             this.pgsFish.TabIndex = 15;
-            this.pgsFish.Value = 600;
+            this.pgsFish.Value = 3000;
             // 
             // pgsChop
             // 
             this.pgsChop.Location = new System.Drawing.Point(107, 77);
-            this.pgsChop.Maximum = 600;
+            this.pgsChop.Maximum = 3000;
             this.pgsChop.Name = "pgsChop";
             this.pgsChop.Size = new System.Drawing.Size(75, 23);
             this.pgsChop.TabIndex = 14;
-            this.pgsChop.Value = 600;
+            this.pgsChop.Value = 3000;
             // 
             // pgsForage
             // 
             this.pgsForage.Location = new System.Drawing.Point(107, 48);
-            this.pgsForage.Maximum = 600;
+            this.pgsForage.Maximum = 3000;
             this.pgsForage.Name = "pgsForage";
             this.pgsForage.Size = new System.Drawing.Size(75, 23);
             this.pgsForage.TabIndex = 13;
-            this.pgsForage.Value = 600;
+            this.pgsForage.Value = 3000;
             // 
             // pgsMine
             // 
             this.pgsMine.Location = new System.Drawing.Point(107, 19);
-            this.pgsMine.Maximum = 600;
+            this.pgsMine.Maximum = 3000;
             this.pgsMine.Name = "pgsMine";
             this.pgsMine.Size = new System.Drawing.Size(75, 23);
             this.pgsMine.TabIndex = 12;
-            this.pgsMine.Value = 600;
+            this.pgsMine.Value = 3000;
             // 
             // cmdAllActions
             // 
@@ -344,6 +348,17 @@
             this.tmrProgress.Enabled = true;
             this.tmrProgress.Tick += new System.EventHandler(this.tmrProgress_Tick);
             // 
+            // lblStats
+            // 
+            this.lblStats.AutoSize = true;
+            this.lblStats.Location = new System.Drawing.Point(3, 29);
+            this.lblStats.MaximumSize = new System.Drawing.Size(118, 0);
+            this.lblStats.MinimumSize = new System.Drawing.Size(118, 0);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(118, 26);
+            this.lblStats.TabIndex = 10;
+            this.lblStats.Text = "label1\r\nasd";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,9 +389,9 @@
         internal System.Windows.Forms.Panel pnlAdventure;
         internal System.Windows.Forms.Label lblAdventure;
         internal System.Windows.Forms.Button cmdAdventure;
-        internal System.Windows.Forms.ProgressBar ProgressBar2;
+        internal System.Windows.Forms.ProgressBar pgsHeal;
         internal System.Windows.Forms.Button cmdHeal;
-        internal System.Windows.Forms.ProgressBar ProgressBar1;
+        internal System.Windows.Forms.ProgressBar pgsAdv;
         internal System.Windows.Forms.Panel pnlStats;
         internal System.Windows.Forms.Button btnStatsRefresh;
         internal System.Windows.Forms.Label lblStatsTitle;
@@ -400,6 +415,7 @@
         private System.Windows.Forms.Timer tmrProgress;
         private System.Windows.Forms.Label lblAll;
         private System.Windows.Forms.CheckBox chkAll;
+        private System.Windows.Forms.Label lblStats;
     }
 }
 
