@@ -20,22 +20,25 @@ namespace DiscordRPGui
 
         private void cmdLogin_Click(object sender, EventArgs e)
         {
-            //Save credentials if needed
-            Settings.Default.username = txtUsername.Text;
-            Settings.Default.rememberpass = chkRemember.Checked;
-            Settings.Default.Save();
-            Settings.Default.password = txtPassword.Text;
+            if (txtToken.Text.Length > 10)
+            {
+                //Save credentials if needed
+                Settings.Default.token = txtToken.Text;
+                Settings.Default.rememberpass = chkRemember.Checked;
 
-            //Show main form and hide login form
-            var frm = new frmMain();
-            frm.Location = Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { Show(); };
-            frm.lblLoggedInAs.Text = "Currently logged in as " + txtUsername.Text;
-            frm.Text = txtUsername.Text + "'s Adventure";
-            frm.lblStatsTitle.Text = txtUsername.Text + "'s Stats";
-            frm.Show();
-            Hide();
+                //Show main form and hide login form
+                var frm = new frmMain();
+                frm.Location = Location;
+                frm.StartPosition = FormStartPosition.Manual;
+                frm.FormClosing += delegate { Show(); };
+                frm.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid token.", "Invalid Token", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e) => Close();
@@ -43,15 +46,14 @@ namespace DiscordRPGui
         private void frmLogin_Load(object sender, EventArgs e)
         {
             //Autofill fields
-            txtUsername.Text = Settings.Default.username;
-            txtPassword.Text = Settings.Default.password;
+            txtToken.Text = Settings.Default.token;
             chkRemember.Checked = Settings.Default.rememberpass;
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Save password for next time if the user wants
-            Settings.Default.password = Settings.Default.rememberpass ? Settings.Default.password : ""; 
+            Settings.Default.token = Settings.Default.rememberpass && !string.IsNullOrWhiteSpace(Settings.Default.token) ? Settings.Default.token : ""; 
             Settings.Default.Save();
         }
     }

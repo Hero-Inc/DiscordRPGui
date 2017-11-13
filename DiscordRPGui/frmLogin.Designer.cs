@@ -30,12 +30,10 @@
         {
             this.btnClose = new System.Windows.Forms.Button();
             this.cmdLogin = new System.Windows.Forms.Button();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.picDRPGLogo = new System.Windows.Forms.PictureBox();
             this.chkRemember = new System.Windows.Forms.CheckBox();
+            this.txtToken = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picDRPGLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,15 +57,6 @@
             this.cmdLogin.UseVisualStyleBackColor = true;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(13, 268);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
-            this.lblPassword.TabIndex = 11;
-            this.lblPassword.Text = "Password:";
-            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
@@ -76,21 +65,6 @@
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 10;
             this.lblUsername.Text = "Username:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 287);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(210, 20);
-            this.txtPassword.TabIndex = 9;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(12, 245);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(210, 20);
-            this.txtUsername.TabIndex = 8;
             // 
             // picDRPGLogo
             // 
@@ -110,18 +84,24 @@
             this.chkRemember.Text = "Remember Password";
             this.chkRemember.UseVisualStyleBackColor = true;
             // 
+            // txtToken
+            // 
+            this.txtToken.Location = new System.Drawing.Point(16, 245);
+            this.txtToken.Multiline = true;
+            this.txtToken.Name = "txtToken";
+            this.txtToken.Size = new System.Drawing.Size(206, 62);
+            this.txtToken.TabIndex = 15;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 371);
+            this.Controls.Add(this.txtToken);
             this.Controls.Add(this.chkRemember);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cmdLogin);
-            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.picDRPGLogo);
             this.Name = "frmLogin";
             this.Text = "Login";
@@ -137,11 +117,9 @@
 
         internal System.Windows.Forms.Button btnClose;
         internal System.Windows.Forms.Button cmdLogin;
-        internal System.Windows.Forms.Label lblPassword;
         internal System.Windows.Forms.Label lblUsername;
-        internal System.Windows.Forms.TextBox txtPassword;
-        internal System.Windows.Forms.TextBox txtUsername;
         internal System.Windows.Forms.PictureBox picDRPGLogo;
         private System.Windows.Forms.CheckBox chkRemember;
+        private System.Windows.Forms.TextBox txtToken;
     }
 }
