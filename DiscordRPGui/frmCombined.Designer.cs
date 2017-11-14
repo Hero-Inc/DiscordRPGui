@@ -154,6 +154,7 @@ namespace DiscordRPGui
             this.cmdLogin.TabIndex = 2;
             this.cmdLogin.Text = "Login";
             this.cmdLogin.UseVisualStyleBackColor = true;
+            this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
             // picLogo
             // 
@@ -362,9 +363,10 @@ namespace DiscordRPGui
             this.pnlStats.Controls.Add(this.lblHealthTitle);
             this.pnlStats.Controls.Add(this.lblStats);
             this.pnlStats.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlStats.Location = new System.Drawing.Point(414, 0);
+            this.pnlStats.Enabled = false;
+            this.pnlStats.Location = new System.Drawing.Point(420, 0);
             this.pnlStats.Name = "pnlStats";
-            this.pnlStats.Size = new System.Drawing.Size(221, 258);
+            this.pnlStats.Size = new System.Drawing.Size(215, 258);
             this.pnlStats.TabIndex = 1;
             // 
             // lblExp
@@ -493,6 +495,7 @@ namespace DiscordRPGui
             this.Controls.Add(this.tbcMain);
             this.Name = "frmCombined";
             this.Text = "Discord RPG UI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCombined_FormClosing);
             this.Load += new System.EventHandler(this.frmCombined_Load);
             this.tbcMain.ResumeLayout(false);
             this.tabLogin.ResumeLayout(false);

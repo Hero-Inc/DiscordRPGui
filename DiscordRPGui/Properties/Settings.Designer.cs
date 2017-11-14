@@ -38,12 +38,12 @@ namespace DiscordRPGui.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool rememberpass {
+        public bool rememberToken {
             get {
-                return ((bool)(this["rememberpass"]));
+                return ((bool)(this["rememberToken"]));
             }
             set {
-                this["rememberpass"] = value;
+                this["rememberToken"] = value;
             }
         }
     }
