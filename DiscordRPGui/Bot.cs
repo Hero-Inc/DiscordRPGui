@@ -7,6 +7,7 @@ namespace DiscordRPGui
 {
     public class Bot
     {
+        //From DSharpPlus Examples (Ex05) (https://github.com/Emzi0767/DSharpPlus-Example-Bot)
         // the client instance, this is initialized with the class
         public DiscordClient Client { get; }
 
@@ -17,7 +18,7 @@ namespace DiscordRPGui
             var cfg = new DiscordConfiguration
             {
                 Token = token,                   // use the supplied token
-                TokenType = TokenType.User,       // log in as a bot
+                TokenType = TokenType.User,       // log in as a User
 
                 AutoReconnect = true,            // reconnect automatically
                 LogLevel = LogLevel.Debug,       // log everything
