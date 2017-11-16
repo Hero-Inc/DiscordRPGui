@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RPGAction.cs" />
     <Compile Include="Bot.cs" />
     <Compile Include="frmCombined.cs">
       <SubType>Form</SubType>

@@ -74,6 +74,7 @@ namespace DiscordRPGui
             this.cmdStats = new System.Windows.Forms.Button();
             this.lblHealthTitle = new System.Windows.Forms.Label();
             this.lblStats = new System.Windows.Forms.Label();
+            this.cmdSelected = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tabLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -168,6 +169,7 @@ namespace DiscordRPGui
             // 
             // tabActions
             // 
+            this.tabActions.Controls.Add(this.cmdSelected);
             this.tabActions.Controls.Add(this.chkSearch);
             this.tabActions.Controls.Add(this.pgsSearch);
             this.tabActions.Controls.Add(this.cmdSearch);
@@ -194,7 +196,7 @@ namespace DiscordRPGui
             // chkSearch
             // 
             this.chkSearch.AutoSize = true;
-            this.chkSearch.Location = new System.Drawing.Point(8, 206);
+            this.chkSearch.Location = new System.Drawing.Point(8, 127);
             this.chkSearch.Name = "chkSearch";
             this.chkSearch.Size = new System.Drawing.Size(15, 14);
             this.chkSearch.TabIndex = 14;
@@ -202,7 +204,7 @@ namespace DiscordRPGui
             // 
             // pgsSearch
             // 
-            this.pgsSearch.Location = new System.Drawing.Point(110, 201);
+            this.pgsSearch.Location = new System.Drawing.Point(110, 122);
             this.pgsSearch.Maximum = 1200;
             this.pgsSearch.Name = "pgsSearch";
             this.pgsSearch.Size = new System.Drawing.Size(294, 23);
@@ -210,7 +212,7 @@ namespace DiscordRPGui
             // 
             // cmdSearch
             // 
-            this.cmdSearch.Location = new System.Drawing.Point(29, 201);
+            this.cmdSearch.Location = new System.Drawing.Point(29, 122);
             this.cmdSearch.Name = "cmdSearch";
             this.cmdSearch.Size = new System.Drawing.Size(75, 23);
             this.cmdSearch.TabIndex = 8;
@@ -256,10 +258,11 @@ namespace DiscordRPGui
             // pgsFish
             // 
             this.pgsFish.Location = new System.Drawing.Point(110, 93);
-            this.pgsFish.Maximum = 1200;
+            this.pgsFish.Maximum = 30000;
             this.pgsFish.Name = "pgsFish";
             this.pgsFish.Size = new System.Drawing.Size(294, 23);
             this.pgsFish.TabIndex = 7;
+            this.pgsFish.Value = 30000;
             // 
             // cmdFish
             // 
@@ -269,14 +272,16 @@ namespace DiscordRPGui
             this.cmdFish.TabIndex = 6;
             this.cmdFish.Text = "Fish";
             this.cmdFish.UseVisualStyleBackColor = true;
+            this.cmdFish.Click += new System.EventHandler(this.cmdFish_Click);
             // 
             // pgsChop
             // 
             this.pgsChop.Location = new System.Drawing.Point(110, 64);
-            this.pgsChop.Maximum = 1200;
+            this.pgsChop.Maximum = 30000;
             this.pgsChop.Name = "pgsChop";
             this.pgsChop.Size = new System.Drawing.Size(294, 23);
             this.pgsChop.TabIndex = 5;
+            this.pgsChop.Value = 30000;
             // 
             // cmdChop
             // 
@@ -286,14 +291,16 @@ namespace DiscordRPGui
             this.cmdChop.TabIndex = 4;
             this.cmdChop.Text = "Chop";
             this.cmdChop.UseVisualStyleBackColor = true;
+            this.cmdChop.Click += new System.EventHandler(this.cmdChop_Click);
             // 
             // pgsForage
             // 
             this.pgsForage.Location = new System.Drawing.Point(110, 35);
-            this.pgsForage.Maximum = 1200;
+            this.pgsForage.Maximum = 30000;
             this.pgsForage.Name = "pgsForage";
             this.pgsForage.Size = new System.Drawing.Size(294, 23);
             this.pgsForage.TabIndex = 3;
+            this.pgsForage.Value = 30000;
             // 
             // cmdForage
             // 
@@ -303,14 +310,16 @@ namespace DiscordRPGui
             this.cmdForage.TabIndex = 2;
             this.cmdForage.Text = "Forage";
             this.cmdForage.UseVisualStyleBackColor = true;
+            this.cmdForage.Click += new System.EventHandler(this.cmdForage_Click);
             // 
             // pgsMine
             // 
             this.pgsMine.Location = new System.Drawing.Point(110, 6);
-            this.pgsMine.Maximum = 1200;
+            this.pgsMine.Maximum = 30000;
             this.pgsMine.Name = "pgsMine";
             this.pgsMine.Size = new System.Drawing.Size(294, 23);
             this.pgsMine.TabIndex = 1;
+            this.pgsMine.Value = 30000;
             // 
             // cmdMine
             // 
@@ -320,6 +329,7 @@ namespace DiscordRPGui
             this.cmdMine.TabIndex = 0;
             this.cmdMine.Text = "Mine";
             this.cmdMine.UseVisualStyleBackColor = true;
+            this.cmdMine.Click += new System.EventHandler(this.cmdMine_Click);
             // 
             // tabAdventure
             // 
@@ -486,6 +496,16 @@ namespace DiscordRPGui
             this.lblStats.TabIndex = 0;
             this.lblStats.Text = "Stats";
             // 
+            // cmdSelected
+            // 
+            this.cmdSelected.Location = new System.Drawing.Point(329, 201);
+            this.cmdSelected.Name = "cmdSelected";
+            this.cmdSelected.Size = new System.Drawing.Size(75, 23);
+            this.cmdSelected.TabIndex = 15;
+            this.cmdSelected.Text = "Do Selected";
+            this.cmdSelected.UseVisualStyleBackColor = true;
+            this.cmdSelected.Click += new System.EventHandler(this.cmdSelected_Click);
+            // 
             // frmCombined
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,5 +572,6 @@ namespace DiscordRPGui
         private System.Windows.Forms.Label lblChestplate;
         private System.Windows.Forms.Label lblHelmet;
         private System.Windows.Forms.Label lblRing;
+        private Button cmdSelected;
     }
 }

@@ -6,6 +6,7 @@ using DSharpPlus;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Entities;
 using DiscordRPGui.Properties;
+using System.Linq;
 
 namespace DiscordRPGui
 {
@@ -16,9 +17,21 @@ namespace DiscordRPGui
         private Bot bot { get; set; }
         private Task botThread { get; set; }
         private CancellationTokenSource tokenSource { get; set; }
+        private RPGAction[] actions;
 
         private void tmrProgress_Tick(object sender, EventArgs e)
         {
+            foreach (var action in actions)
+            {
+                if (action.progressBar.Value < action.progressBar.Maximum)
+                {
+                    action.progressBar.Increment(1);
+                    if (action.progressBar.Value == action.progressBar.Maximum)
+                    {
+                        action.button.Enabled = true;
+                    }
+                }
+            }
         }
 
         private void frmCombined_Load(object sender, EventArgs e)
@@ -26,6 +39,12 @@ namespace DiscordRPGui
             //Autofill fields
             txtToken.Text = Settings.Default.token;
             chkRemember.Checked = Settings.Default.rememberToken;
+            actions = new RPGAction[]{
+                new RPGAction(new String[] { "⛏" }, pgsMine, cmdMine, chkMine),
+                new RPGAction(new String[] { "🌼" }, pgsForage, cmdForage, chkForage),
+                new RPGAction(new String[] { "🌴" }, pgsChop, cmdChop, chkChop),
+                new RPGAction(new String[] { "🎣" }, pgsFish, cmdFish, chkFish),
+            };
         }
 
         private void frmCombined_FormClosing(object sender, FormClosingEventArgs e)
@@ -137,9 +156,52 @@ namespace DiscordRPGui
         {
             if (e.Author.Id == 170915625722576896 && e.Message.Content.Contains(bot.Client.CurrentUser.Username))
             {
+                foreach (var action in actions)
+                {
+                    String message = e.Message.Content.ToLower();
+                    if (action.matchingStrings.Any(message.Contains))
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            action.progressBar.Value = 0;
+                            action.button.Enabled = false;
+                        }));
+                    }
+                }
                 MessageBox.Show(e.Message.Content);
             }
             return Task.CompletedTask;
+        }
+
+        private void cmdMine_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">mine");
+        }
+
+        private void cmdForage_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">forage");
+        }
+
+        private void cmdChop_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">chop");
+        }
+
+        private void cmdFish_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">fish");
+        }
+
+        private void cmdSelected_Click(object sender, EventArgs e)
+        {
+            foreach (var action in actions)
+            {
+                if (action.checkBox.Checked)
+                {
+                    action.button.PerformClick();
+                }
+            }
         }
     }
 }
