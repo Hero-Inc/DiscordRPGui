@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DSharpPlus;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Entities;
 using DiscordRPGui.Properties;
@@ -13,7 +12,6 @@ namespace DiscordRPGui
     public partial class frmCombined : Form
     {
         public frmCombined() => InitializeComponent();
-
         private Bot bot { get; set; }
         private Task botThread { get; set; }
         private CancellationTokenSource tokenSource { get; set; }
@@ -32,6 +30,22 @@ namespace DiscordRPGui
                     }
                 }
             }
+            if (pgsAdv.Value < pgsAdv.Maximum)
+            {
+                pgsAdv.Increment(1);
+                if (pgsAdv.Value == pgsAdv.Maximum)
+                {
+                    cmdAdv.Enabled = true;
+                }
+            }
+            if (pgsHeal.Value < pgsHeal.Maximum)
+            {
+                pgsHeal.Increment(1);
+                if (pgsHeal.Value == pgsHeal.Maximum)
+                {
+                    cmdHeal.Enabled = true;
+                }
+            }
         }
 
         private void frmCombined_Load(object sender, EventArgs e)
@@ -39,6 +53,13 @@ namespace DiscordRPGui
             //Autofill fields
             txtToken.Text = Settings.Default.token;
             chkRemember.Checked = Settings.Default.rememberToken;
+
+            //Block other tabs
+            tabActions.Enabled = false;
+            tabAdventure.Enabled = false;
+            tabInv.Enabled = false;
+
+            //Set up our actions
             actions = new RPGAction[]{
                 new RPGAction(new String[] { "⛏" }, pgsMine, cmdMine, chkMine),
                 new RPGAction(new String[] { "🌼" }, pgsForage, cmdForage, chkForage),
@@ -106,6 +127,10 @@ namespace DiscordRPGui
                 cmdLogin.Text = "Logout";
                 pnlStats.Enabled = true;
                 cmdLogin.Enabled = true;
+
+                tabActions.Enabled = true;
+                tabAdventure.Enabled = true;
+                tabInv.Enabled = true;
             }));
 
             // here we wait indefinitely, or until the wait is
@@ -129,6 +154,10 @@ namespace DiscordRPGui
                 cmdLogin.Enabled = true;
                 txtToken.Enabled = true;
                 chkRemember.Enabled = true;
+
+                tabActions.Enabled = false;
+                tabAdventure.Enabled = false;
+                tabInv.Enabled = false;
             }));
 
             // and finally, dispose of our bot stuff
@@ -168,6 +197,23 @@ namespace DiscordRPGui
                         }));
                     }
                 }
+                if (e.Message.Content.Contains("adventure"))
+                {
+                    Invoke(new Action(() =>
+                    {
+                        pgsAdv.Value = 0;
+                        cmdAdv.Enabled = false;
+                        lblAdventure.Text = e.Message.Content;
+                    }));
+                }
+                if (e.Message.Content.Contains("healed"))
+                {
+                    Invoke(new Action(() =>
+                    {
+                        pgsHeal.Value = 0;
+                        cmdHeal.Enabled = false;
+                    }));
+                }
                 MessageBox.Show(e.Message.Content);
             }
             return Task.CompletedTask;
@@ -202,6 +248,21 @@ namespace DiscordRPGui
                     action.button.PerformClick();
                 }
             }
+        }
+
+        private void cmdAdv_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">adv");
+        }
+
+        private void cmdHeal_Click(object sender, EventArgs e)
+        {
+            sendMessage(259236936437334016, ">heal");
+        }
+
+        private void tbcMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            e.Cancel = !e.TabPage.Enabled;
         }
     }
 }

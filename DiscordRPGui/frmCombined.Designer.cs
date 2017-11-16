@@ -42,6 +42,7 @@ namespace DiscordRPGui
             this.cmdLogin = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.tabActions = new System.Windows.Forms.TabPage();
+            this.cmdSelected = new System.Windows.Forms.Button();
             this.chkSearch = new System.Windows.Forms.CheckBox();
             this.pgsSearch = new System.Windows.Forms.ProgressBar();
             this.cmdSearch = new System.Windows.Forms.Button();
@@ -58,6 +59,12 @@ namespace DiscordRPGui
             this.pgsMine = new System.Windows.Forms.ProgressBar();
             this.cmdMine = new System.Windows.Forms.Button();
             this.tabAdventure = new System.Windows.Forms.TabPage();
+            this.pnlAdvSummery = new System.Windows.Forms.Panel();
+            this.lblAdventure = new System.Windows.Forms.Label();
+            this.pgsHeal = new System.Windows.Forms.ProgressBar();
+            this.cmdHeal = new System.Windows.Forms.Button();
+            this.pgsAdv = new System.Windows.Forms.ProgressBar();
+            this.cmdAdv = new System.Windows.Forms.Button();
             this.tabInv = new System.Windows.Forms.TabPage();
             this.tmrProgress = new System.Windows.Forms.Timer(this.components);
             this.pnlStats = new System.Windows.Forms.Panel();
@@ -74,12 +81,17 @@ namespace DiscordRPGui
             this.cmdStats = new System.Windows.Forms.Button();
             this.lblHealthTitle = new System.Windows.Forms.Label();
             this.lblStats = new System.Windows.Forms.Label();
-            this.cmdSelected = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tabLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.tabActions.SuspendLayout();
+            this.tabAdventure.SuspendLayout();
+            this.pnlAdvSummery.SuspendLayout();
+            this.tabInv.SuspendLayout();
             this.pnlStats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -94,6 +106,7 @@ namespace DiscordRPGui
             this.tbcMain.SelectedIndex = 0;
             this.tbcMain.Size = new System.Drawing.Size(418, 258);
             this.tbcMain.TabIndex = 0;
+            this.tbcMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcMain_Selecting);
             // 
             // tabLogin
             // 
@@ -192,6 +205,16 @@ namespace DiscordRPGui
             this.tabActions.TabIndex = 1;
             this.tabActions.Text = "Actions";
             this.tabActions.UseVisualStyleBackColor = true;
+            // 
+            // cmdSelected
+            // 
+            this.cmdSelected.Location = new System.Drawing.Point(329, 201);
+            this.cmdSelected.Name = "cmdSelected";
+            this.cmdSelected.Size = new System.Drawing.Size(75, 23);
+            this.cmdSelected.TabIndex = 15;
+            this.cmdSelected.Text = "Do Selected";
+            this.cmdSelected.UseVisualStyleBackColor = true;
+            this.cmdSelected.Click += new System.EventHandler(this.cmdSelected_Click);
             // 
             // chkSearch
             // 
@@ -333,6 +356,11 @@ namespace DiscordRPGui
             // 
             // tabAdventure
             // 
+            this.tabAdventure.Controls.Add(this.pnlAdvSummery);
+            this.tabAdventure.Controls.Add(this.pgsHeal);
+            this.tabAdventure.Controls.Add(this.cmdHeal);
+            this.tabAdventure.Controls.Add(this.pgsAdv);
+            this.tabAdventure.Controls.Add(this.cmdAdv);
             this.tabAdventure.Location = new System.Drawing.Point(4, 22);
             this.tabAdventure.Name = "tabAdventure";
             this.tabAdventure.Padding = new System.Windows.Forms.Padding(3);
@@ -341,8 +369,65 @@ namespace DiscordRPGui
             this.tabAdventure.Text = "Adventure";
             this.tabAdventure.UseVisualStyleBackColor = true;
             // 
+            // pnlAdvSummery
+            // 
+            this.pnlAdvSummery.Controls.Add(this.lblAdventure);
+            this.pnlAdvSummery.Location = new System.Drawing.Point(6, 64);
+            this.pnlAdvSummery.Name = "pnlAdvSummery";
+            this.pnlAdvSummery.Size = new System.Drawing.Size(398, 160);
+            this.pnlAdvSummery.TabIndex = 4;
+            // 
+            // lblAdventure
+            // 
+            this.lblAdventure.AutoSize = true;
+            this.lblAdventure.Location = new System.Drawing.Point(3, 7);
+            this.lblAdventure.Name = "lblAdventure";
+            this.lblAdventure.Size = new System.Drawing.Size(93, 13);
+            this.lblAdventure.TabIndex = 0;
+            this.lblAdventure.Text = "Blank\'s Adventure";
+            // 
+            // pgsHeal
+            // 
+            this.pgsHeal.Location = new System.Drawing.Point(87, 35);
+            this.pgsHeal.Maximum = 1000;
+            this.pgsHeal.Name = "pgsHeal";
+            this.pgsHeal.Size = new System.Drawing.Size(317, 23);
+            this.pgsHeal.TabIndex = 3;
+            this.pgsHeal.Value = 1000;
+            // 
+            // cmdHeal
+            // 
+            this.cmdHeal.Location = new System.Drawing.Point(6, 35);
+            this.cmdHeal.Name = "cmdHeal";
+            this.cmdHeal.Size = new System.Drawing.Size(75, 23);
+            this.cmdHeal.TabIndex = 2;
+            this.cmdHeal.Text = "Heal";
+            this.cmdHeal.UseVisualStyleBackColor = true;
+            this.cmdHeal.Click += new System.EventHandler(this.cmdHeal_Click);
+            // 
+            // pgsAdv
+            // 
+            this.pgsAdv.Location = new System.Drawing.Point(87, 6);
+            this.pgsAdv.Maximum = 1200;
+            this.pgsAdv.Name = "pgsAdv";
+            this.pgsAdv.Size = new System.Drawing.Size(317, 23);
+            this.pgsAdv.TabIndex = 1;
+            this.pgsAdv.Value = 1200;
+            // 
+            // cmdAdv
+            // 
+            this.cmdAdv.Location = new System.Drawing.Point(6, 6);
+            this.cmdAdv.Name = "cmdAdv";
+            this.cmdAdv.Size = new System.Drawing.Size(75, 23);
+            this.cmdAdv.TabIndex = 0;
+            this.cmdAdv.Text = "Adventure";
+            this.cmdAdv.UseVisualStyleBackColor = true;
+            this.cmdAdv.Click += new System.EventHandler(this.cmdAdv_Click);
+            // 
             // tabInv
             // 
+            this.tabInv.Controls.Add(this.button1);
+            this.tabInv.Controls.Add(this.numericUpDown1);
             this.tabInv.Location = new System.Drawing.Point(4, 22);
             this.tabInv.Name = "tabInv";
             this.tabInv.Padding = new System.Windows.Forms.Padding(3);
@@ -374,9 +459,9 @@ namespace DiscordRPGui
             this.pnlStats.Controls.Add(this.lblStats);
             this.pnlStats.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlStats.Enabled = false;
-            this.pnlStats.Location = new System.Drawing.Point(420, 0);
+            this.pnlStats.Location = new System.Drawing.Point(414, 0);
             this.pnlStats.Name = "pnlStats";
-            this.pnlStats.Size = new System.Drawing.Size(215, 258);
+            this.pnlStats.Size = new System.Drawing.Size(221, 258);
             this.pnlStats.TabIndex = 1;
             // 
             // lblExp
@@ -496,23 +581,29 @@ namespace DiscordRPGui
             this.lblStats.TabIndex = 0;
             this.lblStats.Text = "Stats";
             // 
-            // cmdSelected
+            // numericUpDown1
             // 
-            this.cmdSelected.Location = new System.Drawing.Point(329, 201);
-            this.cmdSelected.Name = "cmdSelected";
-            this.cmdSelected.Size = new System.Drawing.Size(75, 23);
-            this.cmdSelected.TabIndex = 15;
-            this.cmdSelected.Text = "Do Selected";
-            this.cmdSelected.UseVisualStyleBackColor = true;
-            this.cmdSelected.Click += new System.EventHandler(this.cmdSelected_Click);
+            this.numericUpDown1.Location = new System.Drawing.Point(6, 206);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
+            this.numericUpDown1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 203);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmCombined
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 258);
-            this.Controls.Add(this.pnlStats);
             this.Controls.Add(this.tbcMain);
+            this.Controls.Add(this.pnlStats);
             this.Name = "frmCombined";
             this.Text = "Discord RPG UI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCombined_FormClosing);
@@ -523,8 +614,13 @@ namespace DiscordRPGui
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.tabActions.ResumeLayout(false);
             this.tabActions.PerformLayout();
+            this.tabAdventure.ResumeLayout(false);
+            this.pnlAdvSummery.ResumeLayout(false);
+            this.pnlAdvSummery.PerformLayout();
+            this.tabInv.ResumeLayout(false);
             this.pnlStats.ResumeLayout(false);
             this.pnlStats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,5 +669,13 @@ namespace DiscordRPGui
         private System.Windows.Forms.Label lblHelmet;
         private System.Windows.Forms.Label lblRing;
         private Button cmdSelected;
+        private Panel pnlAdvSummery;
+        private ProgressBar pgsHeal;
+        private Button cmdHeal;
+        private ProgressBar pgsAdv;
+        private Button cmdAdv;
+        private Label lblAdventure;
+        private Button button1;
+        private NumericUpDown numericUpDown1;
     }
 }
