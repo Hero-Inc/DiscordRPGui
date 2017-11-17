@@ -53,11 +53,13 @@ namespace DiscordRPGui
             //Autofill fields
             txtToken.Text = Settings.Default.token;
             chkRemember.Checked = Settings.Default.rememberToken;
+            txtChannel.Text = Convert.ToString(Settings.Default.channel);
 
             //Block other tabs
             tabActions.Enabled = false;
             tabAdventure.Enabled = false;
             tabInv.Enabled = false;
+            tabSettings.Enabled = false;
 
             //Set up our actions
             actions = new RPGAction[]{
@@ -126,11 +128,13 @@ namespace DiscordRPGui
                 Settings.Default.rememberToken = chkRemember.Checked;
                 cmdLogin.Text = "Logout";
                 pnlStats.Enabled = true;
+                pnlMessages.Enabled = true;
                 cmdLogin.Enabled = true;
 
                 tabActions.Enabled = true;
                 tabAdventure.Enabled = true;
                 tabInv.Enabled = true;
+                tabSettings.Enabled = true;
             }));
 
             // here we wait indefinitely, or until the wait is
@@ -151,6 +155,7 @@ namespace DiscordRPGui
             {
                 cmdLogin.Text = "Login";
                 pnlStats.Enabled = false;
+                pnlMessages.Enabled = false;
                 cmdLogin.Enabled = true;
                 txtToken.Enabled = true;
                 chkRemember.Enabled = true;
@@ -158,6 +163,7 @@ namespace DiscordRPGui
                 tabActions.Enabled = false;
                 tabAdventure.Enabled = false;
                 tabInv.Enabled = false;
+                tabSettings.Enabled = false;
             }));
 
             // and finally, dispose of our bot stuff
@@ -166,8 +172,12 @@ namespace DiscordRPGui
             botThread = null;
         }
 
-        private async Task sendMessage(ulong id, string message)
+        private async Task sendMessage(string message, ulong id = 0)
         {
+            if (id == 0)
+            {
+                id = Settings.Default.channel;
+            }
             DiscordChannel chn = await bot.Client.GetChannelAsync(id);
             await chn.SendMessageAsync(message);
         }
@@ -221,22 +231,22 @@ namespace DiscordRPGui
 
         private void cmdMine_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">mine");
+            sendMessage(">mine");
         }
 
         private void cmdForage_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">forage");
+            sendMessage(">forage");
         }
 
         private void cmdChop_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">chop");
+            sendMessage(">chop");
         }
 
         private void cmdFish_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">fish");
+            sendMessage(">fish");
         }
 
         private void cmdSelected_Click(object sender, EventArgs e)
@@ -252,17 +262,23 @@ namespace DiscordRPGui
 
         private void cmdAdv_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">adv");
+            sendMessage(">adv");
         }
 
         private void cmdHeal_Click(object sender, EventArgs e)
         {
-            sendMessage(259236936437334016, ">heal");
+            sendMessage(">heal");
         }
 
         private void tbcMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
             e.Cancel = !e.TabPage.Enabled;
+        }
+
+        private void cmdSaveSettings_Click(object sender, EventArgs e)
+        {
+            Settings.Default.channel = Convert.ToUInt64(txtChannel.Text);
+            Settings.Default.Save();
         }
     }
 }

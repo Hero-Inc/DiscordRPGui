@@ -8,5 +8,8 @@
     <Setting Name="rememberToken" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="channel" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">259236936437334016</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

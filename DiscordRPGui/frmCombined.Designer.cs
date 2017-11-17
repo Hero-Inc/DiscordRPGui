@@ -66,23 +66,21 @@ namespace DiscordRPGui
             this.pgsAdv = new System.Windows.Forms.ProgressBar();
             this.cmdAdv = new System.Windows.Forms.Button();
             this.tabInv = new System.Windows.Forms.TabPage();
-            this.tmrProgress = new System.Windows.Forms.Timer(this.components);
-            this.pnlStats = new System.Windows.Forms.Panel();
-            this.lblExp = new System.Windows.Forms.Label();
-            this.lblAxe = new System.Windows.Forms.Label();
-            this.lblPickaxe = new System.Windows.Forms.Label();
-            this.lblFishingRod = new System.Windows.Forms.Label();
-            this.lblNecklace = new System.Windows.Forms.Label();
-            this.lblBoots = new System.Windows.Forms.Label();
-            this.lblChestplate = new System.Windows.Forms.Label();
-            this.lblHelmet = new System.Windows.Forms.Label();
-            this.lblRing = new System.Windows.Forms.Label();
-            this.lblWeaponTitle = new System.Windows.Forms.Label();
-            this.cmdStats = new System.Windows.Forms.Button();
-            this.lblHealthTitle = new System.Windows.Forms.Label();
-            this.lblStats = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tmrProgress = new System.Windows.Forms.Timer(this.components);
+            this.tabSettings = new System.Windows.Forms.TabPage();
+            this.txtChannel = new System.Windows.Forms.TextBox();
+            this.lblChannel = new System.Windows.Forms.Label();
+            this.cmdSaveSettings = new System.Windows.Forms.Button();
+            this.pnlStats = new System.Windows.Forms.Panel();
+            this.pnlMessages = new System.Windows.Forms.Panel();
+            this.cmdSend = new System.Windows.Forms.Button();
+            this.txtInput = new System.Windows.Forms.TextBox();
+            this.lstOutput = new System.Windows.Forms.ListBox();
+            this.lblHealth = new System.Windows.Forms.Label();
+            this.lblExp = new System.Windows.Forms.Label();
+            this.lblWeapon = new System.Windows.Forms.Label();
             this.tbcMain.SuspendLayout();
             this.tabLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -90,8 +88,10 @@ namespace DiscordRPGui
             this.tabAdventure.SuspendLayout();
             this.pnlAdvSummery.SuspendLayout();
             this.tabInv.SuspendLayout();
-            this.pnlStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tabSettings.SuspendLayout();
+            this.pnlStats.SuspendLayout();
+            this.pnlMessages.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -100,7 +100,7 @@ namespace DiscordRPGui
             this.tbcMain.Controls.Add(this.tabActions);
             this.tbcMain.Controls.Add(this.tabAdventure);
             this.tbcMain.Controls.Add(this.tabInv);
-            this.tbcMain.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbcMain.Controls.Add(this.tabSettings);
             this.tbcMain.Location = new System.Drawing.Point(0, 0);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
@@ -436,158 +436,6 @@ namespace DiscordRPGui
             this.tabInv.Text = "Inventory";
             this.tabInv.UseVisualStyleBackColor = true;
             // 
-            // tmrProgress
-            // 
-            this.tmrProgress.Enabled = true;
-            this.tmrProgress.Interval = 10;
-            this.tmrProgress.Tick += new System.EventHandler(this.tmrProgress_Tick);
-            // 
-            // pnlStats
-            // 
-            this.pnlStats.Controls.Add(this.lblExp);
-            this.pnlStats.Controls.Add(this.lblAxe);
-            this.pnlStats.Controls.Add(this.lblPickaxe);
-            this.pnlStats.Controls.Add(this.lblFishingRod);
-            this.pnlStats.Controls.Add(this.lblNecklace);
-            this.pnlStats.Controls.Add(this.lblBoots);
-            this.pnlStats.Controls.Add(this.lblChestplate);
-            this.pnlStats.Controls.Add(this.lblHelmet);
-            this.pnlStats.Controls.Add(this.lblRing);
-            this.pnlStats.Controls.Add(this.lblWeaponTitle);
-            this.pnlStats.Controls.Add(this.cmdStats);
-            this.pnlStats.Controls.Add(this.lblHealthTitle);
-            this.pnlStats.Controls.Add(this.lblStats);
-            this.pnlStats.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlStats.Enabled = false;
-            this.pnlStats.Location = new System.Drawing.Point(414, 0);
-            this.pnlStats.Name = "pnlStats";
-            this.pnlStats.Size = new System.Drawing.Size(221, 258);
-            this.pnlStats.TabIndex = 1;
-            // 
-            // lblExp
-            // 
-            this.lblExp.AutoSize = true;
-            this.lblExp.Location = new System.Drawing.Point(10, 41);
-            this.lblExp.Name = "lblExp";
-            this.lblExp.Size = new System.Drawing.Size(95, 13);
-            this.lblExp.TabIndex = 12;
-            this.lblExp.Text = "Experience: 0/200";
-            // 
-            // lblAxe
-            // 
-            this.lblAxe.AutoSize = true;
-            this.lblAxe.Location = new System.Drawing.Point(10, 158);
-            this.lblAxe.Name = "lblAxe";
-            this.lblAxe.Size = new System.Drawing.Size(57, 13);
-            this.lblAxe.TabIndex = 11;
-            this.lblAxe.Text = "Axe: None";
-            // 
-            // lblPickaxe
-            // 
-            this.lblPickaxe.AutoSize = true;
-            this.lblPickaxe.Location = new System.Drawing.Point(10, 145);
-            this.lblPickaxe.Name = "lblPickaxe";
-            this.lblPickaxe.Size = new System.Drawing.Size(77, 13);
-            this.lblPickaxe.TabIndex = 10;
-            this.lblPickaxe.Text = "Pickaxe: None";
-            // 
-            // lblFishingRod
-            // 
-            this.lblFishingRod.AutoSize = true;
-            this.lblFishingRod.Location = new System.Drawing.Point(10, 132);
-            this.lblFishingRod.Name = "lblFishingRod";
-            this.lblFishingRod.Size = new System.Drawing.Size(95, 13);
-            this.lblFishingRod.TabIndex = 9;
-            this.lblFishingRod.Text = "Fishing Rod: None";
-            // 
-            // lblNecklace
-            // 
-            this.lblNecklace.AutoSize = true;
-            this.lblNecklace.Location = new System.Drawing.Point(10, 119);
-            this.lblNecklace.Name = "lblNecklace";
-            this.lblNecklace.Size = new System.Drawing.Size(85, 13);
-            this.lblNecklace.TabIndex = 8;
-            this.lblNecklace.Text = "Necklace: None";
-            // 
-            // lblBoots
-            // 
-            this.lblBoots.AutoSize = true;
-            this.lblBoots.Location = new System.Drawing.Point(10, 106);
-            this.lblBoots.Name = "lblBoots";
-            this.lblBoots.Size = new System.Drawing.Size(66, 13);
-            this.lblBoots.TabIndex = 7;
-            this.lblBoots.Text = "Boots: None";
-            // 
-            // lblChestplate
-            // 
-            this.lblChestplate.AutoSize = true;
-            this.lblChestplate.Location = new System.Drawing.Point(10, 93);
-            this.lblChestplate.Name = "lblChestplate";
-            this.lblChestplate.Size = new System.Drawing.Size(89, 13);
-            this.lblChestplate.TabIndex = 6;
-            this.lblChestplate.Text = "Chestplate: None";
-            // 
-            // lblHelmet
-            // 
-            this.lblHelmet.AutoSize = true;
-            this.lblHelmet.Location = new System.Drawing.Point(10, 80);
-            this.lblHelmet.Name = "lblHelmet";
-            this.lblHelmet.Size = new System.Drawing.Size(72, 13);
-            this.lblHelmet.TabIndex = 5;
-            this.lblHelmet.Text = "Helmet: None";
-            // 
-            // lblRing
-            // 
-            this.lblRing.AutoSize = true;
-            this.lblRing.Location = new System.Drawing.Point(10, 67);
-            this.lblRing.Name = "lblRing";
-            this.lblRing.Size = new System.Drawing.Size(61, 13);
-            this.lblRing.TabIndex = 4;
-            this.lblRing.Text = "Ring: None";
-            // 
-            // lblWeaponTitle
-            // 
-            this.lblWeaponTitle.AutoSize = true;
-            this.lblWeaponTitle.Location = new System.Drawing.Point(10, 54);
-            this.lblWeaponTitle.Name = "lblWeaponTitle";
-            this.lblWeaponTitle.Size = new System.Drawing.Size(117, 13);
-            this.lblWeaponTitle.TabIndex = 3;
-            this.lblWeaponTitle.Text = "Weapon: Small Dagger";
-            // 
-            // cmdStats
-            // 
-            this.cmdStats.Location = new System.Drawing.Point(77, 223);
-            this.cmdStats.Name = "cmdStats";
-            this.cmdStats.Size = new System.Drawing.Size(75, 23);
-            this.cmdStats.TabIndex = 2;
-            this.cmdStats.Text = "Refresh";
-            this.cmdStats.UseVisualStyleBackColor = true;
-            // 
-            // lblHealthTitle
-            // 
-            this.lblHealthTitle.AutoSize = true;
-            this.lblHealthTitle.Location = new System.Drawing.Point(10, 28);
-            this.lblHealthTitle.Name = "lblHealthTitle";
-            this.lblHealthTitle.Size = new System.Drawing.Size(87, 13);
-            this.lblHealthTitle.TabIndex = 1;
-            this.lblHealthTitle.Text = "Hit Points: 50/50";
-            // 
-            // lblStats
-            // 
-            this.lblStats.AutoSize = true;
-            this.lblStats.Location = new System.Drawing.Point(10, 9);
-            this.lblStats.Name = "lblStats";
-            this.lblStats.Size = new System.Drawing.Size(31, 13);
-            this.lblStats.TabIndex = 0;
-            this.lblStats.Text = "Stats";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(6, 206);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown1.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(87, 203);
@@ -597,13 +445,139 @@ namespace DiscordRPGui
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(6, 206);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
+            this.numericUpDown1.TabIndex = 0;
+            // 
+            // tmrProgress
+            // 
+            this.tmrProgress.Enabled = true;
+            this.tmrProgress.Interval = 10;
+            this.tmrProgress.Tick += new System.EventHandler(this.tmrProgress_Tick);
+            // 
+            // tabSettings
+            // 
+            this.tabSettings.Controls.Add(this.cmdSaveSettings);
+            this.tabSettings.Controls.Add(this.lblChannel);
+            this.tabSettings.Controls.Add(this.txtChannel);
+            this.tabSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabSettings.Name = "tabSettings";
+            this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSettings.Size = new System.Drawing.Size(410, 232);
+            this.tabSettings.TabIndex = 4;
+            this.tabSettings.Text = "Settings";
+            this.tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // txtChannel
+            // 
+            this.txtChannel.Location = new System.Drawing.Point(6, 19);
+            this.txtChannel.Name = "txtChannel";
+            this.txtChannel.Size = new System.Drawing.Size(398, 20);
+            this.txtChannel.TabIndex = 0;
+            // 
+            // lblChannel
+            // 
+            this.lblChannel.AutoSize = true;
+            this.lblChannel.Location = new System.Drawing.Point(6, 3);
+            this.lblChannel.Name = "lblChannel";
+            this.lblChannel.Size = new System.Drawing.Size(60, 13);
+            this.lblChannel.TabIndex = 1;
+            this.lblChannel.Text = "Channel ID";
+            // 
+            // cmdSaveSettings
+            // 
+            this.cmdSaveSettings.Location = new System.Drawing.Point(6, 203);
+            this.cmdSaveSettings.Name = "cmdSaveSettings";
+            this.cmdSaveSettings.Size = new System.Drawing.Size(75, 23);
+            this.cmdSaveSettings.TabIndex = 2;
+            this.cmdSaveSettings.Text = "Save";
+            this.cmdSaveSettings.UseVisualStyleBackColor = true;
+            this.cmdSaveSettings.Click += new System.EventHandler(this.cmdSaveSettings_Click);
+            // 
+            // pnlStats
+            // 
+            this.pnlStats.Controls.Add(this.lblWeapon);
+            this.pnlStats.Controls.Add(this.lblExp);
+            this.pnlStats.Controls.Add(this.lblHealth);
+            this.pnlStats.Enabled = false;
+            this.pnlStats.Location = new System.Drawing.Point(0, 256);
+            this.pnlStats.Name = "pnlStats";
+            this.pnlStats.Size = new System.Drawing.Size(418, 36);
+            this.pnlStats.TabIndex = 1;
+            // 
+            // pnlMessages
+            // 
+            this.pnlMessages.Controls.Add(this.cmdSend);
+            this.pnlMessages.Controls.Add(this.txtInput);
+            this.pnlMessages.Controls.Add(this.lstOutput);
+            this.pnlMessages.Enabled = false;
+            this.pnlMessages.Location = new System.Drawing.Point(416, 2);
+            this.pnlMessages.Name = "pnlMessages";
+            this.pnlMessages.Size = new System.Drawing.Size(223, 289);
+            this.pnlMessages.TabIndex = 2;
+            // 
+            // cmdSend
+            // 
+            this.cmdSend.Location = new System.Drawing.Point(197, 262);
+            this.cmdSend.Name = "cmdSend";
+            this.cmdSend.Size = new System.Drawing.Size(20, 20);
+            this.cmdSend.TabIndex = 7;
+            this.cmdSend.Text = "➡️";
+            this.cmdSend.UseVisualStyleBackColor = true;
+            // 
+            // txtInput
+            // 
+            this.txtInput.Location = new System.Drawing.Point(2, 262);
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(189, 20);
+            this.txtInput.TabIndex = 6;
+            // 
+            // lstOutput
+            // 
+            this.lstOutput.FormattingEnabled = true;
+            this.lstOutput.Location = new System.Drawing.Point(2, 18);
+            this.lstOutput.Name = "lstOutput";
+            this.lstOutput.Size = new System.Drawing.Size(221, 238);
+            this.lstOutput.TabIndex = 5;
+            // 
+            // lblHealth
+            // 
+            this.lblHealth.Location = new System.Drawing.Point(0, 0);
+            this.lblHealth.Name = "lblHealth";
+            this.lblHealth.Size = new System.Drawing.Size(75, 36);
+            this.lblHealth.TabIndex = 0;
+            this.lblHealth.Text = "❤\r\n50/50 HP";
+            this.lblHealth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblExp
+            // 
+            this.lblExp.Location = new System.Drawing.Point(75, 0);
+            this.lblExp.Name = "lblExp";
+            this.lblExp.Size = new System.Drawing.Size(75, 36);
+            this.lblExp.TabIndex = 1;
+            this.lblExp.Text = "⚡\r\n200/1900 XP";
+            this.lblExp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblWeapon
+            // 
+            this.lblWeapon.Location = new System.Drawing.Point(150, 0);
+            this.lblWeapon.Name = "lblWeapon";
+            this.lblWeapon.Size = new System.Drawing.Size(75, 36);
+            this.lblWeapon.TabIndex = 2;
+            this.lblWeapon.Text = "🗡️\r\nSmall Dagger";
+            this.lblWeapon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmCombined
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 258);
-            this.Controls.Add(this.tbcMain);
+            this.ClientSize = new System.Drawing.Size(639, 292);
+            this.Controls.Add(this.pnlMessages);
             this.Controls.Add(this.pnlStats);
+            this.Controls.Add(this.tbcMain);
             this.Name = "frmCombined";
             this.Text = "Discord RPG UI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCombined_FormClosing);
@@ -618,9 +592,12 @@ namespace DiscordRPGui
             this.pnlAdvSummery.ResumeLayout(false);
             this.pnlAdvSummery.PerformLayout();
             this.tabInv.ResumeLayout(false);
-            this.pnlStats.ResumeLayout(false);
-            this.pnlStats.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tabSettings.ResumeLayout(false);
+            this.tabSettings.PerformLayout();
+            this.pnlStats.ResumeLayout(false);
+            this.pnlMessages.ResumeLayout(false);
+            this.pnlMessages.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -653,21 +630,7 @@ namespace DiscordRPGui
         private System.Windows.Forms.Button cmdSearch;
         private System.Windows.Forms.TabPage tabAdventure;
         private System.Windows.Forms.TabPage tabInv;
-        private System.Windows.Forms.Panel pnlStats;
-        private System.Windows.Forms.Label lblStats;
         private System.Windows.Forms.CheckBox chkRemember;
-        private System.Windows.Forms.Label lblWeaponTitle;
-        private System.Windows.Forms.Button cmdStats;
-        private System.Windows.Forms.Label lblHealthTitle;
-        private System.Windows.Forms.Label lblExp;
-        private System.Windows.Forms.Label lblAxe;
-        private System.Windows.Forms.Label lblPickaxe;
-        private System.Windows.Forms.Label lblFishingRod;
-        private System.Windows.Forms.Label lblNecklace;
-        private System.Windows.Forms.Label lblBoots;
-        private System.Windows.Forms.Label lblChestplate;
-        private System.Windows.Forms.Label lblHelmet;
-        private System.Windows.Forms.Label lblRing;
         private Button cmdSelected;
         private Panel pnlAdvSummery;
         private ProgressBar pgsHeal;
@@ -677,5 +640,17 @@ namespace DiscordRPGui
         private Label lblAdventure;
         private Button button1;
         private NumericUpDown numericUpDown1;
+        private TabPage tabSettings;
+        private Label lblChannel;
+        private TextBox txtChannel;
+        private Button cmdSaveSettings;
+        private Panel pnlStats;
+        private Panel pnlMessages;
+        private Button cmdSend;
+        private TextBox txtInput;
+        private ListBox lstOutput;
+        private Label lblHealth;
+        private Label lblExp;
+        private Label lblWeapon;
     }
 }

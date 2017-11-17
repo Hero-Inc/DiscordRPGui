@@ -46,5 +46,17 @@ namespace DiscordRPGui.Properties {
                 this["rememberToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("259236936437334016")]
+        public ulong channel {
+            get {
+                return ((ulong)(this["channel"]));
+            }
+            set {
+                this["channel"] = value;
+            }
+        }
     }
 }
